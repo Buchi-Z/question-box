@@ -2,8 +2,7 @@ export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
 
-    const question = body.request; // 前端字段 request
-    const email = body.email || null;
+    const question = body.request;
 
     await context.env.DB.prepare(
       "INSERT INTO questions (question, answer) VALUES (?, ?)"
