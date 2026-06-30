@@ -7,7 +7,7 @@ export async function onRequestPost(context) {
 
     // ⚠️ 关键：DB 必须已绑定
     await context.env.DB.prepare(
-      "INSERT INTO requests (content, email) VALUES (?, ?)"
+      "INSERT INTO questions (content, email) VALUES (?, ?)"
     )
     .bind(content, email)
     .run();
