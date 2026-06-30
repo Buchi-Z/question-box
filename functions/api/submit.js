@@ -1,4 +1,7 @@
 export async function onRequestPost(context) {
+
+  console.log(context.env.DB); // ⭐ 就加在这里（最上面）
+
   try {
     const body = await context.request.json();
 
