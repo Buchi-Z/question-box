@@ -50,6 +50,6 @@ export async function onRequestPost(context){
 
   return json({
     success:true,
-    message:"已收到你的内容，我们会尽快查看"
+    message:"已收到你的内容，我会尽快查看"
   });
 }
