@@ -1,40 +1,54 @@
-document
-.getElementById("requestForm")
-.addEventListener("submit", async function(event) {
+document.getElementById("requestForm")
+.addEventListener("submit", async function(e){
 
-    event.preventDefault();
+    e.preventDefault();
 
-    // 🧠 只保留核心输入
-    const requestText = document.getElementById("request").value;
+    const btn = document.getElementById("submitBtn");
+    const msg = document.getElementById("msg");
 
-    // 📦 发送数据
-    const data = {
-        request: requestText
-    };
+    const text = document.getElementById("request").value;
 
-    try {
+    if(!text){
+        msg.innerText = "请填写内容";
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerText = "提交中...";
+
+    msg.innerText = "";
+
+    try{
 
         const res = await fetch("/api/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ request:text })
         });
 
-        const result = await res.json();
+        const data = await res.json();
 
-        console.log("服务器返回：", result);
+        if(data.success){
 
-        if (result.success) {
-            alert("提交成功！");
+            msg.style.color = "#2e7d32";
+            msg.innerText = data.message || "提交成功";
+
             document.getElementById("request").value = "";
-        } else {
-            alert("提交失败，请重试");
+
+        }else{
+
+            msg.style.color = "#c62828";
+            msg.innerText = data.error || "提交失败";
         }
 
-    } catch (error) {
-        console.error(error);
-        alert("网络错误");
+    }catch(err){
+
+        msg.style.color = "#c62828";
+        msg.innerText = "网络错误，请稍后再试";
     }
+
+    btn.disabled = false;
+    btn.innerText = "提交";
 });

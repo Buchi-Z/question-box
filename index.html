@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>点图箱</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,35 +14,19 @@
     <h1>点图箱</h1>
 
     <p class="description">
-        如果你有想看的主题、角色、构图或灵感，请在这里描述。<br>
-        我会根据兴趣和时间决定是否绘制。
+        描述你想看的内容、角色或场景，我们会在合适的时候参考。
     </p>
 
     <form id="requestForm">
 
-        <label>想看的内容 <span>*</span></label>
+        <label>内容描述 *</label>
 
-        <textarea
-            id="request"
-            rows="10"
-            maxlength="2000"
-            placeholder="例如：
+        <textarea id="request" rows="8" maxlength="2000"
+        placeholder="尽量具体，比如：角色 + 场景 + 情绪"></textarea>
 
-作品：
-角色：
+        <button type="submit" id="submitBtn">提交</button>
 
-想看的场景：
-
-人物状态：
-
-构图：
-
-其它补充：
-"
-            required
-        ></textarea>
-
-        <button type="submit">提交点图</button>
+        <p id="msg" class="msg"></p>
 
     </form>
 
