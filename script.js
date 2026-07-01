@@ -4,17 +4,16 @@ document
 
     event.preventDefault();
 
+    // 🧠 只保留核心输入
     const requestText = document.getElementById("request").value;
-    const email = document.getElementById("email").value;
-    const imageFile = document.getElementById("image").files[0];
 
-    // 先不处理图片（后面再加）
+    // 📦 发送数据
     const data = {
-        request: requestText,
-        email: email || null
+        request: requestText
     };
 
     try {
+
         const res = await fetch("/api/submit", {
             method: "POST",
             headers: {
@@ -29,6 +28,7 @@ document
 
         if (result.success) {
             alert("提交成功！");
+            document.getElementById("request").value = "";
         } else {
             alert("提交失败，请重试");
         }

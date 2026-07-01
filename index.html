@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>点图箱</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>点图箱</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <h1>点图箱</h1>
 
     <p class="description">
-        如果你有想看的主题、角色、构图或灵感，欢迎告诉我。<br>
+        如果你有想看的主题、角色、构图或灵感，请在这里描述。<br>
         我会根据兴趣和时间决定是否绘制。
     </p>
 
@@ -25,45 +25,25 @@
 
         <textarea
             id="request"
-            rows="8"
+            rows="10"
             maxlength="2000"
             placeholder="例如：
-角色：
+
 作品：
+角色：
+
 想看的场景：
-服装：
-想看的互动：
-其它补充……"
+
+人物状态：
+
+构图：
+
+其它补充：
+"
             required
         ></textarea>
 
-        <label>参考图片（可选）</label>
-
-        <input
-            type="file"
-            id="image"
-            accept="image/png,image/jpeg,image/webp"
-        >
-
-        <small>
-            可以上传姿势参考、草图、服装设计等图片。
-        </small>
-
-        <label>邮箱（可选）</label>
-
-        <input
-            type="email"
-            id="email"
-            placeholder="example@email.com"
-        >
-
-        <small>
-            如果希望后续联系，可以留下邮箱，不会公开。
-        </small>
-
-        <button type="submit">
-            提交点图
-        </button>
+        <button type="submit">提交点图</button>
 
     </form>
 
